@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de la librairie Formidable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+
+        code {
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Documentation de la librairie Formidable</h1>
+    
+    <h2>Composant InputTypeText :</h2>
+    <p>
+        Ce composant permet à l'utilisateur de saisir du texte. Il utilise un élément &lt;input&gt; de type "text". La prop placeholder est utilisée pour afficher un texte d'exemple à l'utilisateur, l'incitant à saisir les informations requises.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant InputTypeText -->
+    <pre><code>// react
+import React from 'react';
+
+function InputTypeText({ placeholder }) {
+    return (
+        &lt;input placeholder={placeholder} /&gt;
+    );
+}
+
+export default InputTypeText;
+</code></pre>
+
+    <h2>Composant InputTypeEmail :</h2>
+    <p>
+        Ce composant est destiné à la saisie d'une adresse e-mail. Il utilise également un élément &lt;input&gt; de type "email" pour bénéficier de la validation d'adresse e-mail intégrée du navigateur. Le texte "Entrez votre adresse email" est affiché en tant que placeholder pour guider l'utilisateur.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant InputTypeEmail -->
+    <pre><code>// react
+import React from 'react';
+
+function InputTypeEmail() {
+    return (
+        &lt;input placeholder="Entrez votre adresse email" type="email" /&gt;
+    );
+}
+
+export default InputTypeEmail;
+</code></pre>
+
+    <h2>Composant InputTypeCheckbox :</h2>
+    <p>
+        Ce composant représente une case à cocher qui permet à l'utilisateur de sélectionner ou de désélectionner une option. Il utilise un élément &lt;input&gt; de type "checkbox" pour implémenter cette fonctionnalité.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant InputTypeCheckbox -->
+    <pre><code>// react
+import React from 'react';
+
+function InputTypeCheckbox() {
+    return (
+        &lt;input type="checkbox" /&gt;
+    );
+}
+
+export default InputTypeCheckbox;
+</code></pre>
+
+    <h2>Composant InputTypeButton :</h2>
+    <p>
+        Ce composant est un bouton qui permet à l'utilisateur d'effectuer des actions telles que la soumission d'un formulaire. Il utilise un élément &lt;button&gt; pour cela. Il reçoit une prop onClick pour définir le gestionnaire d'événements lorsque le bouton est cliqué, et la prop children pour afficher le texte à l'intérieur du bouton.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant InputTypeButton -->
+    <pre><code>// react
+import PropTypes from 'prop-types';
+
+function InputTypeButton({ onClick, children }) {
+    return (
+        &lt;button onClick={onClick}&gt;{children}&lt;/button&gt;
+    );
+}
+
+InputTypeButton.propTypes = {
+    onClick: PropTypes.func.isRequired,
+    children: PropTypes.node.isRequired,
+};
+
+export default InputTypeButton;
+</code></pre>
+
+    <h2>Composant InputTypePassword :</h2>
+    <p>
+        Ce composant représente un champ de saisie de mot de passe sécurisé. Il utilise un élément &lt;input&gt; de type "password" pour masquer les caractères saisis. Il inclut également une logique de validation pour vérifier si le mot de passe répond à certains critères de sécurité, tels que la longueur minimale et la présence de caractères spéciaux, de chiffres, de majuscules et de minuscules. Si le mot de passe ne répond pas à ces critères, un message d'erreur est affiché à l'utilisateur.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant InputTypePassword -->
+    <pre><code>// react
+import { useState } from "react";
+
+function InputTypePassword() {
+  const [password, setPassword] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  const validatePassword = (password) => {
+    const regex =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return regex.test(password);
+  };
+
+  const handlePasswordChange = (e) => {
+    const value = e.target.value;
+    setPassword(value);
+    if (!validatePassword(value)) {
+      setPasswordError("Le mot de passe doit contenir au moins 8 caractères, dont une majuscule, une minuscule, un chiffre et un caractère spécial.");
+    } else {
+      setPasswordError("");
+    }
+  };
+
+  return (
+    &lt;input
+      type="password"
+      value={password}
+      onChange={handlePasswordChange}
+      placeholder="Entrez votre mot de passe"
+    /&gt;
+    {passwordError && &lt;div className="error"&gt;{passwordError}&lt;/div&gt;}
+  );
+}
+
+export default InputTypePassword;
+</code></pre>
+
+    <h2>Composant BasicForm :</h2>
+    <p>
+        Ce composant est utilisé pour créer un formulaire de base contenant plusieurs champs de saisie, tels que le nom, le prénom, l'âge, l'e-mail et le mot de passe. Il importe les composants InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox et InputTypeButton pour construire le formulaire. Chaque champ du formulaire est associé à une étiquette &lt;label&gt; pour indiquer à l'utilisateur ce qu'il doit saisir. Lorsque le formulaire est soumis, la fonction handleSubmit est appelée pour empêcher le comportement par défaut de soumission du formulaire. Les props sont validées à l'aide de PropTypes pour garantir que la prop formName est une chaîne de caractères valide.
+    </p>
+    <h3>Code :</h3>
+    <!-- Code du composant BasicForm -->
+    <pre><code>// proptypes
+import PropTypes from "prop-types";
+
+// inputs
+import InputTypeText from "../IndividualsInputs/InputTypeText";
+import InputTypeEmail from "../IndividualsInputs/InputTypeEmail";
+import InputTypePassword from "../IndividualsInputs/InputTypePassword";
+import InputTypeCheckbox from "../IndividualsInputs/InputTypeCheckbox";
+import InputTypeButton from "../IndividualsInputs/InputTypeButton";
+
+//css
+import "../styles/Forms.css";
+
+function BasicForm({ formName }) {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    &lt;div className="basic-form"&gt;
+      &lt;p&gt;{formName}&lt;/p&gt;
+
+      &lt;label&gt; Nom &lt;/label&gt;
+      &lt;InputTypeText placeholder=" Entrez votre nom" /&gt;
+
+      &lt;label&gt; Prénom &lt;/label&gt;
+      &lt;InputTypeText placeholder=" Entrez votre prénom" /&gt;
+
+      &lt;label&gt; Age &lt;/label&gt;
+      &lt;InputTypeText
+        placeholder=" Entrez votre age"
+        type="number"
+        min="0"
+        max="100"
+      /&gt;
+
+      &lt;label&gt; Email &lt;/label&gt;
+      &lt;InputTypeEmail /&gt;
+
+      &lt;label&gt; Mot de passe &lt;/label&gt;
+      &lt;InputTypePassword /&gt;
+
+      &lt;InputTypeCheckbox /&gt;
+      &lt;label&gt; J&apos;accepte de transmettre mes informations &lt;/label&gt;
+
+      &lt;InputTypeButton onClick={handleSubmit}&gt;
+        Je crée mon compte
+      &lt;/InputTypeButton&gt;
+    &lt;/div&gt;
+  );
+}
+
+BasicForm.propTypes = {
+  formName: PropTypes.string,
+};
+
+export default BasicForm;
+</code></pre>
+
+</body>
+</html>

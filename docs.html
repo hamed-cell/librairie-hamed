@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Detailed and structured documentation for the Form-idable project." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+    <link rel="stylesheet" href="/public/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <title>Form-idable Documentation</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            margin: 0;
+            padding: 0;
+        }
+        .theme-switch, .menu-toggle {
+            cursor: pointer;
+            position: fixed;
+            z-index: 1000;
+        }
+        .menu-toggle {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1010; /* Ensure it's above other content for clickability */
+        }
+        .nav-link {
+            display: block;
+            padding: 0.5rem 1rem;
+            color: #4a5568;
+            text-decoration: none;
+        }
+        .nav-link:hover {
+            background-color: #e2e8f0;
+        }
+        .active {
+            font-weight: bold;
+            color: #2b6cb0;
+        }
+        #sidebar {
+            width: 250px;
+            height: 100vh;
+            overflow-y: auto;
+            position: fixed;
+            background-color: #f7fafc;
+            padding: 1rem;
+            border-right: 1px solid #e2e8f0;
+            transition: left 0.3s;
+            left: -240px; /* Adjust so that 10px of the sidebar is visible */
+        }
+        #content {
+            margin-left: 1rem;
+            padding: 1rem;
+            height: calc(100vh - 2rem);
+            background-color: #edf2f7;
+            box-sizing: border-box;
+            overflow-y: auto;
+        }
+        @media (min-width: 768px) {
+            #sidebar {
+                left: 0; /* Always visible on non-mobile devices */
+            }
+            #content {
+                margin-left: 250px; /* Adjust content margin when sidebar is visible */
+            }
+            .menu-toggle {
+                display: none; /* Hide the menu button on desktop */
+            }
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-gray-900 dark:text-gray-100">
+    <div class="theme-switch p-2 bg-gray-200 dark:bg-gray-800 rounded-full" style="right: 1rem;" onclick="toggleTheme()">
+        <img src="./logo.webp" alt="Dark Mode" id="theme-icon" class="h-5 w-5">
+    </div>
+    <div id="sidebar">
+        <div class="menu-toggle p-2 bg-gray-200 dark:bg-gray-800 rounded-full" onclick="toggleSidebar()">
+            <img src="Menu_icon_icon-icons.com_71858.png" alt="Menu" class="h-5 w-5"> <!-- Check path correctness -->
+        </div>
+        <h1 class="font-bold text-xl mb-4">Form-idable Docs</h1>
+        <a href="#getting-started" class="nav-link active" onclick="navigateTo('getting-started')">Guide d'Installation</a>
+        <a href="#installation" class="nav-link" onclick="navigateTo('installation')">Installation</a>
+        <a href="#configuration" class="nav-link" onclick="navigateTo('configuration')">Configuration</a>
+        <a href="#components" class="nav-link" onclick="navigateTo('components')">Components</a>
+        <a href="#FAQ" class="nav-link" onclick="navigateTo('api-integration')">FAQ</a>
+    </div>
+    <div id="content">
+        <iframe id="page-frame" src="getting-started.html" frameborder="0" width="100%" height="100%"></iframe>
+    </div>
+    <script>
+        function toggleTheme() {
+            const body = document.body;
+            const themeIcon = document.getElementById('theme-icon');
+            body.classList.toggle('dark');
+            themeIcon.src = body.classList.contains('dark') ? './public/icons/sun.svg' : './public/icons/moon.svg';
+        }
+    
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const menuToggle = document.getElementsByClassName('menu-toggle')[0];
+            const isClosed = sidebar.style.left === '-240px';
+            sidebar.style.left = isClosed ? '0px' : '-240px';
+            // Adjust menu button position based on sidebar state
+            menuToggle.style.left = isClosed ? '250px' : '10px'; // Change '250px' to the width of the sidebar
+        }
+    
+        function navigateTo(page) {
+            const frame = document.getElementById('page-frame');
+            frame.src = `${page}.html`;
+            // Close the sidebar if it is open
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === '0px') { // Check if sidebar is open
+                toggleSidebar(); // Close the sidebar
+            }
+        }
+    </script>
+</body>
+</html>

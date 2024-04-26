@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation de Formidable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p, li {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        code, pre {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+            color: #333;
+        }
+        pre {
+            padding: 10px;
+            overflow-x: auto;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h2>Vue d'ensemble</h2>
+        <p><strong>Formidable</strong> est une bibliothèque puissante pour simplifier la gestion de formulaires dans vos applications web. Elle fournit une suite de composants réutilisables qui facilitent la création de formulaires personnalisés tout en maintenant la performance et l'accessibilité.</p>
+
+        <h2>Motivation</h2>
+        <p>Le développement de <strong>Formidable</strong> a été motivé par la nécessité de standardiser le traitement des formulaires .</p>
+
+        <h2>Définition du Composant</h2>
+        <p>Le composant BasicForm est défini comme une fonction prenant formName en prop pour personnaliser le titre du formulaire affiché à l'utilisateur.</p>
+        <pre><code>function BasicForm({ formName }) {
+  const handleSubmit = (e) => {
+    e.preventDefault(); // Empêche le comportement par défaut de soumission du formulaire
+  };
+
+  return (
+    &lt;div className="basic-form"&gt;
+      &lt;p&gt;{formName}&lt;/p&gt;
+      ...
+    &lt;/div&gt;
+  );
+}</code></pre>
+
+        <h2>Logique de Gestion des Soumissions</h2>
+        <p>handleSubmit est une fonction qui est appelée lors du clic sur le bouton de soumission. Elle utilise e.preventDefault() pour stopper le rechargement de la page, ce qui est essentiel pour ne pas perdre l'état lors de la soumission du formulaire.</p>
+
+        <h2>Construction des Champs du Formulaire</h2>
+        <p>Chaque champ du formulaire utilise un composant spécifique qui encapsule la logique nécessaire pour collecter et valider les données :</p>
+        <pre><code>&lt;label&gt; Nom &lt;/label&gt;
+&lt;InputTypeText placeholder="Entrez votre nom" /&gt;
+
+&lt;label&gt; Prénom &lt;/label&gt;
+&lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
+
+&lt;label&gt; Age &lt;/label&gt;
+&lt;InputTypeText placeholder="Entrez votre age" type="number" min="0" max="100" /&gt;
+
+&lt;label&gt; Email &lt;/label&gt;
+&lt;InputTypeEmail /&gt;
+
+&lt;label&gt; Mot de passe &lt;/label&gt;
+&lt;InputTypePassword /&gt;
+
+&lt;InputTypeCheckbox /&gt;
+&lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
+
+&lt;InputTypeButton onClick={handleSubmit}&gt;
+  Je crée mon compte
+&lt;/InputTypeButton&gt;</code></pre>
+
+        <p>Chaque input est conçu pour être réutilisable et facilement intégrable dans d'autres parties de l'application, augmentant ainsi la cohérence et réduisant la redondance du code.</p>
+
+        <h2>Validation des Props</h2>
+        <p>Le composant BasicForm utilise PropTypes pour s'assurer que la prop formName est passée correctement comme une chaîne de caractères, renforçant la robustesse du composant.</p>
+        <pre><code>BasicForm.propTypes = {
+  formName: PropTypes.string, // Valide que formName est bien une chaîne de caractères
+};</code></pre>
+
+        <h2>Composant BasicForm</h2>
+        <p>Le BasicForm est un composant fonctionnel en React qui utilise des composants d'input individuels pour collecter les données utilisateur. Il est structuré pour être facilement intégrable et extensible :</p>
+        <pre><code>import PropTypes from "prop-types";
+import { InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox, InputTypeButton } from "../IndividualsInputs";
+import "../styles/Forms.css";
+
+function BasicForm({ formName }) {
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Empêche le rechargement de la page
+    };
+
+    return (
+        &lt;div className="basic-form"&gt;
+            &lt;p&gt;{formName}&lt;/p&gt;
+            &lt;label&gt; Nom &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre nom" /&gt;
+            &lt;label&gt; Prénom &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
+            &lt;label&gt; Âge &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre âge" type="number" min="0" max="100" /&gt;
+            &lt;label&gt; Email &lt;/label&gt;
+            &lt;InputTypeEmail /&gt;
+            &lt;label&gt; Mot de passe &lt;/label&gt;
+            &lt;InputTypePassword /&gt;
+            &lt;InputTypeCheckbox /&gt;
+            &lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
+            &lt;InputTypeButton onClick={handleSubmit}&gt;Je crée mon compte&lt;/InputTypeButton&gt;
+        &lt;/div&gt;
+    );
+}
+
+BasicForm.propTypes = {
+    formName: PropTypes.string, // Valide que formName est bien une chaîne de caractères
+};
+
+export default BasicForm;</code></pre>
+
+        <p>Ce composant utilise PropTypes pour s'assurer que les propriétés passées au formulaire respectent le type attendu, augmentant ainsi la robustesse du composant.</p>
+
+        <h2>Composants d'Input Individuels</h2>
+        <p>Chaque input est encapsulé dans son propre composant, permettant une réutilisation et une personnalisation aisées. Par exemple, InputTypeButton est défini comme suit :</p>
+        <pre><code>import PropTypes from "prop-types";
+
+function InputTypeButton({ children, ...restProps }) {
+    return <button {...restProps}>{children}</button>;
+}
+
+InputTypeButton.propTypes = {
+    children: PropTypes.node.isRequired, // Assure que le bouton contient des éléments enfants valides
+};
+
+export default InputTypeButton;</code></pre>
+
+        <h2>Installation</h2>
+        <p>Pour intégrer <strong>Formidable</strong> dans votre projet :</p>
+        <pre><code>git clone https://github.com/Messaoudiam/Form-idable.git
+cd Form-idable
+npm install
+npm run dev</code></pre>
+
+        <h2>Utilisation</h2>
+        <p>Voici un exemple d'utilisation du composant <strong>BasicForm</strong> de <strong>Formidable</strong> :</p>
+        <pre><code>import PropTypes from "prop-types";
+import { InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox, InputTypeButton } from "../IndividualsInputs";
+import "../styles/Forms.css";
+
+function BasicForm({ formName }) {
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    };
+
+    return (
+        &lt;div className="basic-form"&gt;
+            &lt;p&gt;{formName}&lt;/p&gt;
+            &lt;label&gt; Nom &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre nom" /&gt;
+            &lt;label&gt; Prénom &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
+            &lt;label&gt; Âge &lt;/label&gt;
+            &lt;InputTypeText placeholder="Entrez votre âge" type="number" min="0" max="100" /&gt;
+            &lt;label&gt; Email &lt;/label&gt;
+            &lt;InputTypeEmail /&gt;
+            &lt;label&gt; Mot de passe &lt;/label&gt;
+            &lt;InputTypePassword /&gt;
+            &lt;InputTypeCheckbox /&gt;
+            &lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
+            &lt;InputTypeButton onClick={handleSubmit}&gt;Je crée mon compte&lt;/InputTypeButton&gt;
+        &lt;/div&gt;
+    );
+}
+
+BasicForm.propTypes = {
+    formName: PropTypes.string
+};
+
+export default BasicForm;</code></pre>
+
+        <h2>Contribution</h2>
+        <p>Les contributions à <strong>Formidable</strong> sont toujours les bienvenues, qu'elles concernent de nouvelles fonctionnalités, des corrections de bugs ou des améliorations de la documentation. Pour contribuer, veuillez consulter le dépôt GitHub du projet.</p>
+
+        <h2>Conclusion</h2>
+        <p><strong>Formidable</strong> est conçu pour être une solution légère mais puissante pour la gestion des formulaires dans React, offrant une flexibilité et une performance accrues pour les développeurs de tous niveaux.</p>
+    </div>
+</body>
+</html>
