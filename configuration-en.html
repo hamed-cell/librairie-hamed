@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Installation of Formidable Library</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        p, li {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        code, pre {
+            background-color: #f4f4f4;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-family: Consolas, monospace;
+            color: #333;
+        }
+        pre {
+            padding: 10px;
+            overflow-x: auto;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Installation of Formidable Library</h1>
+
+        <h2>Step 1: Installing the Library</h2>
+        <p>To get started, you need to install the "Formidable" library into your project. This can be done using npm, the Node.js package manager. Run the following command in your terminal at the root of your project:</p>
+        <pre><code>npm i @hamed-attar/formidable</code></pre>
+        <p>This command downloads and installs the latest version of the "Formidable" library into your project, along with all its dependencies.</p>
+
+        <h2>Step 2: Importing Components</h2>
+        <p>Once the library is installed, you can import the necessary components into your React application. For example, if you want to use the BasicForm component, you can import it into your JavaScript or TypeScript file like this:</p>
+        <pre><code>import BasicForm from '@hamed-attar/formidable/BasicForm';</code></pre>
+        <p>Make sure to adjust the import path according to the actual location of the file in your project.</p>
+
+        <h2>Step 3: Using Components</h2>
+        <p>Once you have imported the components, you can use them like any other React component in your application. For example, to use the BasicForm component, you can include it in the rendering of your parent component like this:</p>
+        <pre><code>
+function App() {
+    return (
+        &lt;div className="App"&gt;
+            &lt;h1&gt;My Application with Formidable&lt;/h1&gt;
+            &lt;BasicForm formName="My Form" /&gt;
+        &lt;/div&gt;
+    );
+}
+
+export default App;</code></pre>
+        <p>Make sure to pass any necessary props to the components, such as formName in this example.</p>
+
+        <h2>Step 4: Customization</h2>
+        <p>You can also customize the components by passing them additional props according to your needs. For example, you can specify specific options for form fields or event handlers for user actions.</p>
+    </div>
+</body>
+</html>

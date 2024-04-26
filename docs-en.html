@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Detailed and structured documentation for the Form-idable project.">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Detailed and structured documentation for the Form-idable project." />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
     <link rel="stylesheet" href="/public/styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <title>Form-idable Documentation</title>
     <style>
         body {
@@ -22,6 +22,7 @@
             z-index: 1000;
         }
         .menu-toggle {
+            position: fixed;
             top: 10px;
             left: 10px;
             z-index: 1010; /* Ensure it's above other content for clickability */
@@ -69,98 +70,27 @@
                 display: none; /* Hide the menu button on desktop */
             }
         }
-        .select-style {
-  position: fixed; /* Fix the position on the page */
-  top: 20px; /* Distance from top */
-  right: 20px; /* Distance from right */
-  display: flex;
-  align-items: center;
-  z-index: 1000; /* Make sure it's on top of other elements */
-  font-family: 'Poppins', sans-serif;
-}
-
-.select-style select {
-  width: 150px; /* Adjust width if needed */
-  height: 40px; /* Adjust height for better visibility */
-  border-radius: 20px; /* More pronounced rounded corners */
-  background: linear-gradient(45deg, #ff512f, #dd2476); /* Gradient background */
-  color: rgb(0, 0, 0);
-  text-align-last: center;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-  border: 1px solid #ffffff;
-  appearance: none;
-  padding: 0 20px;
-  cursor: pointer;
-  font-size: 16px; /* Adjust font size for readability */
-  transition: all 0.4s ease-in-out; /* Smooth transition for hover effects */
-  position: relative; /* Needed for absolute positioning of pseudo-elements */
-}
-
-.select-style:after {
-  content: "▼";
-  font-size: 16px;
-  position: absolute;
-  top: 50%;
-  right: 15px;
-  transform: translateY(-50%);
-  color: white;
-  pointer-events: none; /* Make sure clicks go through this element */
-  transition: transform 0.4s ease;
-}
-
-.select-style select:hover, .select-style select:focus {
-  background: linear-gradient(45deg, #dd2476, #ff512f); /* Reverse gradient on hover/focus */
-  transform: scale(1.1); /* Slight increase in size on hover */
-  outline: none;
-}
-
-.select-style select:active {
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.6); /* Deeper shadow to simulate pressing */
-}
-
-/* Add a ripple effect on click */
-.select-style::before {
-  content: "";
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.5);
-  border-radius: 20px;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 0.3s, transform 0.3s;
-  transform: scale(0);
-}
-
-.select-style select:active::before {
-  transform: scale(1);
-  opacity: 1;
-  transition: 0s;
-}
-
     </style>
 </head>
-<body class="bg-white dark:bg-gray-900 dark:text-gray-100">
-    <div class="select-style">
-        <select id="languageSwitcher">
-            <option value="en">English</option>
-            <option value="fr">Français</option>
-        </select>
-    </div>
+<body
+ class="bg-white dark:bg-gray-900 dark:text-gray-100">
+ <select id="languageSwitcher">
+    <option value="en">English</option>
+    <option value="fr">Français</option>
+  </select>
     <div class="theme-switch p-2 bg-gray-200 dark:bg-gray-800 rounded-full" style="right: 1rem;" onclick="toggleTheme()">
         <img src="./logo.webp" alt="Dark Mode" id="theme-icon" class="h-5 w-5">
     </div>
     <div id="sidebar">
         <div class="menu-toggle p-2 bg-gray-200 dark:bg-gray-800 rounded-full" onclick="toggleSidebar()">
-            <img src="Menu_icon_icon-icons.com_71858.png" alt="Menu" class="h-5 w-5">
+            <img src="Menu_icon_icon-icons.com_71858.png" alt="Menu" class="h-5 w-5"> <!-- Check path correctness -->
         </div>
         <h1 class="font-bold text-xl mb-4">Form-idable Docs</h1>
         <a href="#getting-started" class="nav-link active" onclick="navigateTo('getting-started')">Installation Guide</a>
         <a href="#installation" class="nav-link" onclick="navigateTo('installation')">Installation</a>
         <a href="#configuration" class="nav-link" onclick="navigateTo('configuration')">Configuration</a>
         <a href="#components" class="nav-link" onclick="navigateTo('components')">Components</a>
-        <a href="#FAQ" class="nav-link" onclick="navigateTo('FAQ')">FAQ</a>
+        <a href="#FAQ" class="nav-link" onclick="navigateTo('api-integration')">FAQ</a>
     </div>
     <div id="content">
         <iframe id="page-frame" src="getting-started.html" frameborder="0" width="100%" height="100%"></iframe>
@@ -172,7 +102,7 @@
             body.classList.toggle('dark');
             themeIcon.src = body.classList.contains('dark') ? './public/icons/sun.svg' : './public/icons/moon.svg';
         }
-
+    
         function toggleSidebar() {
             const sidebar = document.getElementById('sidebar');
             const menuToggle = document.getElementsByClassName('menu-toggle')[0];
@@ -180,32 +110,15 @@
             sidebar.style.left = isClosed ? '0px' : '-240px';
             menuToggle.style.left = isClosed ? '250px' : '10px';
         }
-
+    
         function navigateTo(page) {
             const frame = document.getElementById('page-frame');
-            frame.src = `${page}${localStorage.getItem('lang') === 'fr' ? '' : '-en'}.html`;
-            if (document.getElementById('sidebar').style.left === '0px') {
+            frame.src = `${page}.html`;
+            const sidebar = document.getElementById('sidebar');
+            if (sidebar.style.left === '0px') {
                 toggleSidebar();
             }
         }
-
-        function switchLanguage(language) {
-            localStorage.setItem('lang', language); // Save the language in localStorage
-            document.documentElement.lang = language;
-            navigateTo(document.getElementById('page-frame').src.split('/').pop().split('.')[0].replace('-en', ''));
-        }
-
-        document.getElementById('languageSwitcher').addEventListener('change', function() {
-            switchLanguage(this.value);
-        });
-
-        // Initialize the language from localStorage on page load
-        window.onload = function() {
-            const lang = localStorage.getItem('lang') || 'en'; // Default to English
-            document.getElementById('languageSwitcher').value = lang;
-            switchLanguage(lang);
-        };
-        
     </script>
 </body>
 </html>
