@@ -43,6 +43,12 @@
         a:hover {
             text-decoration: underline;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -58,16 +64,16 @@ import { Form, Input } from "@shark-man/react-form";
 function App() {
   return (
     &lt;Form className="basic-form"&gt;
-      &lt;h2&gt;Information&lt;/h2&gt;
-      &lt;Input type="text" placeholder="firstname" /&gt;
-      &lt;Input type="text" placeholder="lastname" /&gt;
-      &lt;Input type="number" placeholder="age" /&gt;
-      &lt;label&gt;i have a handicap&lt;/label&gt;
+      &lt;h2&gt;Informations&lt;/h2&gt;
+      &lt;Input type="text" placeholder="prénom" /&gt;
+      &lt;Input type="text" placeholder="nom" /&gt;
+      &lt;Input type="number" placeholder="âge" /&gt;
+      &lt;label&gt;J'ai un handicap&lt;/label&gt;
       &lt;label htmlFor=""&gt;
-        &lt;input type="radio" /&gt; Yes
+        &lt;input type="radio" /&gt; Oui
       &lt;/label&gt;
       &lt;label htmlFor=""&gt;
-        &lt;Input type="radio" /&gt; No
+        &lt;Input type="radio" /&gt; Non
       &lt;/label&gt;
 
       &lt;select&gt;
@@ -76,14 +82,17 @@ function App() {
         &lt;option value="option3"&gt;Option 3&lt;/option&gt;
       &lt;/select&gt;
 
-      &lt;button&gt; Submit &lt;/button&gt;
+      &lt;button&gt; Envoyer &lt;/button&gt;
     &lt;/Form&gt;
   );
 }
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
+        <p>Voici le rendu !</p>
+
+        <!-- Image -->
+        <img src="/rendu app.webp" alt="Rendu de l'application">
 
         <h2>Exemple 2: Formulaire de connexion</h2>
         <p>Ce code crée un formulaire de connexion dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
@@ -111,7 +120,7 @@ function App() {
 
   return (
     &lt;Form onSubmit={(e) => e.preventDefault()} className="vectorForm"&gt;
-      &lt;h2&gt;Login&lt;/h2&gt;
+      &lt;h2&gt;Connexion&lt;/h2&gt;
       &lt;Input
         type="email"
         name="email"
@@ -123,16 +132,19 @@ function App() {
         name="password"
         onChange={handleChange}
         value={data.password}
-        placeholder="Password"
+        placeholder="Mot de passe"
       /&gt;
-      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
+      &lt;button type="button" onClick={handleSubmit}&gt; Envoyer &lt;/button&gt;
     &lt;/Form&gt;
   );
 }
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
+        <p>Voici le rendu !</p>
+
+        <!-- Image -->
+        <img src="/rendu app  2.webp" alt="Rendu de l'application">
 
         <h2>Exemple 3: Formulaire d'inscription</h2>
         <p>Ce code montre comment créer un formulaire d'inscription dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
@@ -162,20 +174,20 @@ function App() {
 
   return (
     &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
-      &lt;h2&gt;Signup&lt;/h2&gt;
+      &lt;h2&gt;Inscription&lt;/h2&gt;
       &lt;Input
         type="text"
         name="firstname"
         onChange={handleChange}
         value={data.firstname}
-        placeholder="First name"
+        placeholder="Prénom"
       /&gt;
       &lt;Input
         type="text"
         name="lastname"
         onChange={handleChange}
         value={data.lastname}
-        placeholder="Last name"
+        placeholder="Nom"
       /&gt;
       &lt;Input
         type="email"
@@ -188,16 +200,17 @@ function App() {
         name="password"
         onChange={handleChange}
         value={data.password}
-        placeholder="Password"
+        placeholder="Mot de passe"
       /&gt;
-      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
+      &lt;button type="button" onClick={handleSubmit}&gt; Envoyer &lt;/button&gt;
     &lt;/Form&gt;
   );
 }
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
+        <p>Voici le rendu !</p>
+        <img src="/Signup.png   " alt="Rendu de l'application">
 
         <h2>Exemple 4: Utilisation du composant Button</h2>
         <p>Ce code importe et utilise un composant Button de la bibliothèque "@shark-man/react-form". Il démontre comment créer plusieurs boutons avec différents styles en utilisant des classes CSS spécifiques.</p>

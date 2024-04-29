@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formidable Documentation</title>
-    <!-- Including Prism.js -->
+    <title>Documentation de Formidable</title>
+    <!-- Inclusion de Prism.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <style>
@@ -43,15 +43,21 @@
         a:hover {
             text-decoration: underline;
         }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
     <div class="container">
 
-        <h1>Formidable Documentation</h1>
+        <h1>Documentation de Formidable</h1>
 
-        <h2>Example 1: Information Collection Form</h2>
-        <p>This code presents an information collection form in a React application using components from the "@shark-man/react-form" library.</p>
+        <h2>Exemple 1: Formulaire de collecte d'informations</h2>
+        <p>Ce code présente un formulaire de collecte d'informations dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
         <pre><code class="language-javascript">
 import { Form, Input } from "@shark-man/react-form";
 
@@ -83,10 +89,13 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Here's the output!</p>
+        <p>Voici le rendu!</p>
 
-        <h2>Example 2: Login Form</h2>
-        <p>This code creates a login form in a React application using components from the "@shark-man/react-form" library.</p>
+        <!-- Image -->
+        <img src="/rendu app.webp" alt="Rendu de l'application">
+
+        <h2>Exemple 2: Formulaire de connexion</h2>
+        <p>Ce code crée un formulaire de connexion dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
         <pre><code class="language-javascript">
 import { Form, Input, InputPassword } from "@shark-man/react-form";
 import { useState } from "react";
@@ -132,10 +141,13 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Here's the output!</p>
+        <p>Voici le rendu!</p>
 
-        <h2>Example 3: Signup Form</h2>
-        <p>This code demonstrates how to create a signup form in a React application using components from the "@shark-man/react-form" library.</p>
+        <!-- Image -->
+        <img src="/rendu app  2.webp" alt="Rendu de l'application">
+
+        <h2>Exemple 3: Formulaire d'inscription</h2>
+        <p>Ce code montre comment créer un formulaire d'inscription dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
         <pre><code class="language-javascript">
 import { Form, Input, InputPassword } from "@shark-man/react-form";
 import { useState } from "react";
@@ -161,7 +173,7 @@ function App() {
   };
 
   return (
-    &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
+    &lt;Form onSubmit={(e) => 3.preventDefault()} className="basic-form"&gt;
       &lt;h2&gt;Signup&lt;/h2&gt;
       &lt;Input
         type="text"
@@ -197,10 +209,11 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Here's the output!</p>
+        <p>Voici le rendu!</p>
+        <img src="/Signup.png   " alt="Rendu de l'application">
 
-        <h2>Example 4: Using Button Component</h2>
-        <p>This code imports and uses a Button component from the "@shark-man/react-form" library. It demonstrates how to create multiple buttons with different styles using specific CSS classes.</p>
+        <h2>Exemple 4: Utilisation du composant Button</h2>
+        <p>Ce code importe et utilise un composant Button de la bibliothèque "@shark-man/react-form". Il démontre comment créer plusieurs boutons avec différents styles en utilisant des classes CSS spécifiques.</p>
         <pre><code class="language-javascript">
 import { Button } from "@shark-man/react-form";
 
