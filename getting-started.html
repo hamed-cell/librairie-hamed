@@ -48,162 +48,181 @@
 <body>
     <div class="container">
 
-        <h2>Vue d'ensemble</h2>
-        <p><strong>Formidable</strong> est une bibliothèque puissante pour simplifier la gestion de formulaires dans vos applications web. Elle fournit une suite de composants réutilisables qui facilitent la création de formulaires personnalisés tout en maintenant la performance et l'accessibilité.</p>
+        <h1>Documentation de Formidable</h1>
 
-        <h2>Motivation</h2>
-        <p>Le développement de <strong>Formidable</strong> a été motivé par la nécessité de standardiser le traitement des formulaires .</p>
+        <h2>Exemple 1: Formulaire de collecte d'informations</h2>
+        <p>Ce code présente un formulaire de collecte d'informations dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <pre><code class="language-javascript">
+import { Form, Input } from "@shark-man/react-form";
 
-        <h2>Définition du Composant</h2>
-        <p>Le composant BasicForm est défini comme une fonction prenant formName en prop pour personnaliser le titre du formulaire affiché à l'utilisateur.</p>
-        <pre><code class="language-javascript">function BasicForm({ formName }) {
-  const handleSubmit = (e) => {
-    e.preventDefault(); // Empêche le comportement par défaut de soumission du formulaire
+function App() {
+  return (
+    &lt;Form className="basic-form"&gt;
+      &lt;h2&gt;Information&lt;/h2&gt;
+      &lt;Input type="text" placeholder="firstname" /&gt;
+      &lt;Input type="text" placeholder="lastname" /&gt;
+      &lt;Input type="number" placeholder="age" /&gt;
+      &lt;label&gt;i have a handicap&lt;/label&gt;
+      &lt;label htmlFor=""&gt;
+        &lt;input type="radio" /&gt; Yes
+      &lt;/label&gt;
+      &lt;label htmlFor=""&gt;
+        &lt;Input type="radio" /&gt; No
+      &lt;/label&gt;
+
+      &lt;select&gt;
+        &lt;option value="option1"&gt;Option 1&lt;/option&gt;
+        &lt;option value="option2"&gt;Option 2&lt;/option&gt;
+        &lt;option value="option3"&gt;Option 3&lt;/option&gt;
+      &lt;/select&gt;
+
+      &lt;button&gt; Submit &lt;/button&gt;
+    &lt;/Form&gt;
+  );
+}
+
+export default App;
+        </code></pre>
+        <p>Voici le rendu!</p>
+
+        <h2>Exemple 2: Formulaire de connexion</h2>
+        <p>Ce code crée un formulaire de connexion dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <pre><code class="language-javascript">
+import { Form, Input, InputPassword } from "@shark-man/react-form";
+import { useState } from "react";
+
+function App() {
+  const [data, setData] = useState({
+    email: " ",
+    password: " ",
+  });
+
+  const handleSubmit = () => {
+    console.log(data);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
   };
 
   return (
-    &lt;div className="basic-form"&gt;
-      &lt;p&gt;{formName}&lt;/p&gt;
-      ...
+    &lt;Form onSubmit={(e) => e.preventDefault()} className="vectorForm"&gt;
+      &lt;h2&gt;Login&lt;/h2&gt;
+      &lt;Input
+        type="email"
+        name="email"
+        onChange={handleChange}
+        value={data.email}
+        placeholder="Email"
+      /&gt;
+      &lt;InputPassword
+        name="password"
+        onChange={handleChange}
+        value={data.password}
+        placeholder="Password"
+      /&gt;
+      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
+    &lt;/Form&gt;
+  );
+}
+
+export default App;
+        </code></pre>
+        <p>Voici le rendu!</p>
+
+        <h2>Exemple 3: Formulaire d'inscription</h2>
+        <p>Ce code montre comment créer un formulaire d'inscription dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <pre><code class="language-javascript">
+import { Form, Input, InputPassword } from "@shark-man/react-form";
+import { useState } from "react";
+
+function App() {
+  const [data, setData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = () => {
+    console.log(data);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setData({
+      ...data,
+      [name]: value,
+    });
+  };
+
+  return (
+    &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
+      &lt;h2&gt;Signup&lt;/h2&gt;
+      &lt;Input
+        type="text"
+        name="firstname"
+        onChange={handleChange}
+        value={data.firstname}
+        placeholder="First name"
+      /&gt;
+      &lt;Input
+        type="text"
+        name="lastname"
+        onChange={handleChange}
+        value={data.lastname}
+        placeholder="Last name"
+      /&gt;
+      &lt;Input
+        type="email"
+        name="email"
+        onChange={handleChange}
+        value={data.email}
+        placeholder="Email"
+      /&gt;
+      &lt;InputPassword
+        name="password"
+        onChange={handleChange}
+        value={data.password}
+        placeholder="Password"
+      /&gt;
+      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
+    &lt;/Form&gt;
+  );
+}
+
+export default App;
+        </code></pre>
+        <p>Voici le rendu!</p>
+
+        <h2>Exemple 4: Utilisation du composant Button</h2>
+        <p>Ce code importe et utilise un composant Button de la bibliothèque "@shark-man/react-form". Il démontre comment créer plusieurs boutons avec différents styles en utilisant des classes CSS spécifiques.</p>
+        <pre><code class="language-javascript">
+import { Button } from "@shark-man/react-form";
+
+function Buttontest() {
+  return (
+    &lt;div&gt;
+      &lt;Button className="button-glow"&gt;Button-glow &lt;/Button&gt;
+      &lt;br /&gt;
+      &lt;Button className="cta-button"&gt; Cta-button&lt;/Button&gt;
+      &lt;br /&gt;
+      &lt;Button className="button-normal"&gt; Button-normal&lt;/Button&gt;
+      &lt;br /&gt;
+      &lt;Button className="button-martial"&gt; Button-martial&lt;/Button&gt;
     &lt;/div&gt;
   );
-}</code></pre>
-
-        <h2>Logique de Gestion des Soumissions</h2>
-        <p>handleSubmit est une fonction qui est appelée lors du clic sur le bouton de soumission. Elle utilise <code class="language-javascript">e.preventDefault()</code> pour stopper le rechargement de la page, ce qui est essentiel pour ne pas perdre l'état lors de la soumission du formulaire.</p>
-
-        <h2>Construction des Champs du Formulaire</h2>
-        <p>Chaque champ du formulaire utilise un composant spécifique qui encapsule la logique nécessaire pour collecter et valider les données :</p>
-        <pre><code class="language-javascript">&lt;label&gt; Nom &lt;/label&gt;
-&lt;InputTypeText placeholder="Entrez votre nom" /&gt;
-
-&lt;label&gt; Prénom &lt;/label&gt;
-&lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
-
-&lt;label&gt; Age &lt;/label&gt;
-&lt;InputTypeText placeholder="Entrez votre age" type="number" min="0" max="100" /&gt;
-
-&lt;label&gt; Email &lt;/label&gt;
-&lt;InputTypeEmail /&gt;
-
-&lt;label&gt; Mot de passe &lt;/label&gt;
-&lt;InputTypePassword /&gt;
-
-&lt;InputTypeCheckbox /&gt;
-&lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
-
-&lt;InputTypeButton onClick={handleSubmit}&gt;
-  Je crée mon compte
-&lt;/InputTypeButton&gt;</code></pre>
-
-        <p>Chaque input est conçu pour être réutilisable et facilement intégrable dans d'autres parties de l'application, augmentant ainsi la cohérence et réduisant la redondance du code.</p>
-
-        <h2>Validation des Props</h2>
-        <p>Le composant BasicForm utilise PropTypes pour s'assurer que la prop formName est passée correctement comme une chaîne de caractères, renforçant la robustesse du composant.</p>
-        <pre><code class="language-javascript">BasicForm.propTypes = {
-  formName: PropTypes.string, // Valide que formName est bien une chaîne de caractères
-};</code></pre>
-
-        <h2>Composant BasicForm</h2>
-        <p>Le BasicForm est un composant fonctionnel en React qui utilise des composants d'input individuels pour collecter les données utilisateur. Il est structuré pour être facilement intégrable et extensible :</p>
-        <pre><code class="language-javascript">import PropTypes from "prop-types";
-import { InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox, InputTypeButton } from "../IndividualsInputs";
-import "../styles/Forms.css";
-
-function BasicForm({ formName }) {
-    const handleSubmit = (e) => {
-        e.preventDefault(); // Empêche le rechargement de la page
-    };
-
-    return (
-        &lt;div className="basic-form"&gt;
-            &lt;p&gt;{formName}&lt;/p&gt;
-            &lt;label&gt; Nom &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre nom" /&gt;
-            &lt;label&gt; Prénom &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
-            &lt;label&gt; Âge &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre âge" type="number" min="0" max="100" /&gt;
-            &lt;label&gt; Email &lt;/label&gt;
-            &lt;InputTypeEmail /&gt;
-            &lt;label&gt; Mot de passe &lt;/label&gt;
-            &lt;InputTypePassword /&gt;
-            &lt;InputTypeCheckbox /&gt;
-            &lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
-            &lt;InputTypeButton onClick={handleSubmit}&gt;Je crée mon compte&lt;/InputTypeButton&gt;
-        &lt;/div&gt;
-    );
 }
 
-BasicForm.propTypes = {
-    formName: PropTypes.string, // Valide que formName est bien une chaîne de caractères
-};
-
-export default BasicForm;</code></pre>
-
-        <p>Ce composant utilise PropTypes pour s'assurer que les propriétés passées au formulaire respectent le type attendu, augmentant ainsi la robustesse du composant.</p>
-
-        <h2>Composants d'Input Individuels</h2>
-        <p>Chaque input est encapsulé dans son propre composant, permettant une réutilisation et une personnalisation aisées. Par exemple, InputTypeButton est défini comme suit :</p>
-        <pre><code class="language-javascript">import PropTypes from "prop-types";
-
-function InputTypeButton({ children, ...restProps }) {
-    return <button {...restProps}>{children}</button>;
-}
-
-InputTypeButton.propTypes = {
-    children: PropTypes.node.isRequired, // Assure que le bouton contient des éléments enfants valides
-};
-
-export default InputTypeButton;</code></pre>
-
-        <h2>Installation</h2>
-        <p>Pour intégrer <strong>Formidable</strong> dans votre projet :</p>
-        <pre><code class="language-javascript">npm i @shark-man/react-form
-npm run dev</code></pre>
-
-        <h2>Utilisation</h2>
-        <p>Voici un exemple d'utilisation du composant <strong>BasicForm</strong> de <strong>Formidable</strong> :</p>
-        <pre><code class="language-javascript">import PropTypes from "prop-types";
-import { InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox, InputTypeButton } from "../IndividualsInputs";
-import "../styles/Forms.css";
-
-function BasicForm({ formName }) {
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
-
-    return (
-        &lt;div className="basic-form"&gt;
-            &lt;p&gt;{formName}&lt;/p&gt;
-            &lt;label&gt; Nom &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre nom" /&gt;
-            &lt;label&gt; Prénom &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre prénom" /&gt;
-            &lt;label&gt; Âge &lt;/label&gt;
-            &lt;InputTypeText placeholder="Entrez votre âge" type="number" min="0" max="100" /&gt;
-            &lt;label&gt; Email &lt;/label&gt;
-            &lt;InputTypeEmail /&gt;
-            &lt;label&gt; Mot de passe &lt;/label&gt;
-            &lt;InputTypePassword /&gt;
-            &lt;InputTypeCheckbox /&gt;
-            &lt;label&gt; J'accepte de transmettre mes informations &lt;/label&gt;
-            &lt;InputTypeButton onClick={handleSubmit}&gt;Je crée mon compte&lt;/InputTypeButton&gt;
-        &lt;/div&gt;
-    );
-}
-
-BasicForm.propTypes = {
-    formName: PropTypes.string
-};
-
-export default BasicForm;</code></pre>
-
-        <h2>Contribution</h2>
-        <p>Les contributions à <strong>Formidable</strong> sont toujours les bienvenues, qu'elles concernent de nouvelles fonctionnalités, des corrections de bugs ou des améliorations de la documentation. Pour contribuer, veuillez consulter le dépôt GitHub du projet.</p>
+export default Buttontest;
+        </code></pre>
 
         <h2>Conclusion</h2>
-        <p><strong>Formidable</strong> est conçu pour être une solution légère mais puissante pour la gestion des formulaires dans React, offrant une flexibilité et une performance accrues pour les développeurs de tous niveaux.</p>
+        <p>Cette documentation vous a montré comment utiliser les composants de la bibliothèque "@shark-man/react-form" pour créer des formulaires dans vos applications React. Avec ces composants, vous pouvez facilement gérer la collecte d'informations, la connexion des utilisateurs et l'inscription des utilisateurs.</p>
     </div>
 </body>
 </html>
