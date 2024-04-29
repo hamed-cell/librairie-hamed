@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Documentation de la librairie Formidable</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-jsx.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/components/prism-javascript.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -26,6 +30,14 @@
             padding: 2px 4px;
             border-radius: 4px;
         }
+
+        pre {
+            margin-bottom: 20px;
+        }
+
+        pre[class*="language-"] {
+            overflow: auto;
+        }
     </style>
 </head>
 <body>
@@ -33,11 +45,11 @@
     
     <h2>Composant InputTypeText :</h2>
     <p>
-        Ce composant permet à l'utilisateur de saisir du texte. Il utilise un élément &lt;input&gt; de type "text". La prop placeholder est utilisée pour afficher un texte d'exemple à l'utilisateur, l'incitant à saisir les informations requises.
+        Ce composant permet à l'utilisateur de saisir du texte. Il utilise un élément <code>&lt;input&gt;</code> de type "text". La prop placeholder est utilisée pour afficher un texte d'exemple à l'utilisateur, l'incitant à saisir les informations requises.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant InputTypeText -->
-    <pre><code>// react
+    <pre><code class="language-js">// react
 import React from 'react';
 
 function InputTypeText({ placeholder }) {
@@ -51,11 +63,11 @@ export default InputTypeText;
 
     <h2>Composant InputTypeEmail :</h2>
     <p>
-        Ce composant est destiné à la saisie d'une adresse e-mail. Il utilise également un élément &lt;input&gt; de type "email" pour bénéficier de la validation d'adresse e-mail intégrée du navigateur. Le texte "Entrez votre adresse email" est affiché en tant que placeholder pour guider l'utilisateur.
+        Ce composant est destiné à la saisie d'une adresse e-mail. Il utilise également un élément <code>&lt;input&gt;</code> de type "email" pour bénéficier de la validation d'adresse e-mail intégrée du navigateur. Le texte "Entrez votre adresse email" est affiché en tant que placeholder pour guider l'utilisateur.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant InputTypeEmail -->
-    <pre><code>// react
+    <pre><code class="language-jsx">// react
 import React from 'react';
 
 function InputTypeEmail() {
@@ -69,11 +81,11 @@ export default InputTypeEmail;
 
     <h2>Composant InputTypeCheckbox :</h2>
     <p>
-        Ce composant représente une case à cocher qui permet à l'utilisateur de sélectionner ou de désélectionner une option. Il utilise un élément &lt;input&gt; de type "checkbox" pour implémenter cette fonctionnalité.
+        Ce composant représente une case à cocher qui permet à l'utilisateur de sélectionner ou de désélectionner une option. Il utilise un élément <code>&lt;input&gt;</code> de type "checkbox" pour implémenter cette fonctionnalité.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant InputTypeCheckbox -->
-    <pre><code>// react
+    <pre><code class="language-js">// react
 import React from 'react';
 
 function InputTypeCheckbox() {
@@ -87,11 +99,11 @@ export default InputTypeCheckbox;
 
     <h2>Composant InputTypeButton :</h2>
     <p>
-        Ce composant est un bouton qui permet à l'utilisateur d'effectuer des actions telles que la soumission d'un formulaire. Il utilise un élément &lt;button&gt; pour cela. Il reçoit une prop onClick pour définir le gestionnaire d'événements lorsque le bouton est cliqué, et la prop children pour afficher le texte à l'intérieur du bouton.
+        Ce composant est un bouton qui permet à l'utilisateur d'effectuer des actions telles que la soumission d'un formulaire. Il utilise un élément <code>&lt;button&gt;</code> pour cela. Il reçoit une prop onClick pour définir le gestionnaire d'événements lorsque le bouton est cliqué, et la prop children pour afficher le texte à l'intérieur du bouton.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant InputTypeButton -->
-    <pre><code>// react
+    <pre><code class="language-jsx">// react
 import PropTypes from 'prop-types';
 
 function InputTypeButton({ onClick, children }) {
@@ -110,11 +122,11 @@ export default InputTypeButton;
 
     <h2>Composant InputTypePassword :</h2>
     <p>
-        Ce composant représente un champ de saisie de mot de passe sécurisé. Il utilise un élément &lt;input&gt; de type "password" pour masquer les caractères saisis. Il inclut également une logique de validation pour vérifier si le mot de passe répond à certains critères de sécurité, tels que la longueur minimale et la présence de caractères spéciaux, de chiffres, de majuscules et de minuscules. Si le mot de passe ne répond pas à ces critères, un message d'erreur est affiché à l'utilisateur.
+        Ce composant représente un champ de saisie de mot de passe sécurisé. Il utilise un élément <code>&lt;input&gt;</code> de type "password" pour masquer les caractères saisis. Il inclut également une logique de validation pour vérifier si le mot de passe répond à certains critères de sécurité, tels que la longueur minimale et la présence de caractères spéciaux, de chiffres, de majuscules et de minuscules. Si le mot de passe ne répond pas à ces critères, un message d'erreur est affiché à l'utilisateur.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant InputTypePassword -->
-    <pre><code>// react
+    <pre><code class="language-jsx">// react
 import { useState } from "react";
 
 function InputTypePassword() {
@@ -153,11 +165,11 @@ export default InputTypePassword;
 
     <h2>Composant BasicForm :</h2>
     <p>
-        Ce composant est utilisé pour créer un formulaire de base contenant plusieurs champs de saisie, tels que le nom, le prénom, l'âge, l'e-mail et le mot de passe. Il importe les composants InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox et InputTypeButton pour construire le formulaire. Chaque champ du formulaire est associé à une étiquette &lt;label&gt; pour indiquer à l'utilisateur ce qu'il doit saisir. Lorsque le formulaire est soumis, la fonction handleSubmit est appelée pour empêcher le comportement par défaut de soumission du formulaire. Les props sont validées à l'aide de PropTypes pour garantir que la prop formName est une chaîne de caractères valide.
+        Ce composant est utilisé pour créer un formulaire de base contenant plusieurs champs de saisie, tels que le nom, le prénom, l'âge, l'e-mail et le mot de passe. Il importe les composants InputTypeText, InputTypeEmail, InputTypePassword, InputTypeCheckbox et InputTypeButton pour construire le formulaire. Chaque champ du formulaire est associé à une étiquette <code>&lt;label&gt;</code> pour indiquer à l'utilisateur ce qu'il doit saisir. Lorsque le formulaire est soumis, la fonction handleSubmit est appelée pour empêcher le comportement par défaut de soumission du formulaire. Les props sont validées à l'aide de PropTypes pour garantir que la prop formName est une chaîne de caractères valide.
     </p>
     <h3>Code :</h3>
     <!-- Code du composant BasicForm -->
-    <pre><code>// proptypes
+    <pre><code class="language-jsx">// proptypes
 import PropTypes from "prop-types";
 
 // inputs

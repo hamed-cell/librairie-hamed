@@ -28,9 +28,11 @@
             border-radius: 5px;
             font-family: Consolas, monospace;
             color: #333;
+            display: block;
+            white-space: pre-wrap;
+            margin-bottom: 15px;
         }
         pre {
-            padding: 10px;
             overflow-x: auto;
         }
         a {
@@ -40,6 +42,26 @@
         a:hover {
             text-decoration: underline;
         }
+
+        /* Custom syntax highlighting styles */
+        .keyword {
+            color: #d73a49; /* Red for keywords */
+        }
+        .string {
+            color: #032f62; /* Dark Blue for strings */
+        }
+        .tag {
+            color: #22863a; /* Green for HTML tags */
+        }
+        .attribute {
+            color: #6f42c1; /* Purple for attributes */
+        }
+        .value {
+            color: #e36209; /* Orange for values */
+        }
+        .text {
+            color: #999; /* Grey for regular text */
+        }
     </style>
 </head>
 <body>
@@ -48,27 +70,27 @@
 
         <h2>Step 1: Installing the Library</h2>
         <p>To get started, you need to install the "Formidable" library into your project. This can be done using npm, the Node.js package manager. Run the following command in your terminal at the root of your project:</p>
-        <pre><code>npm i @shark-man/react-form</code></pre>
+        <pre><code class="text">npm i <span class="string">@shark-man/react-form</span></code></pre>
         <p>This command downloads and installs the latest version of the "Formidable" library into your project, along with all its dependencies.</p>
 
         <h2>Step 2: Importing Components</h2>
         <p>Once the library is installed, you can import the necessary components into your React application. For example, if you want to use the BasicForm component, you can import it into your JavaScript or TypeScript file like this:</p>
-        <pre><code>import BasicForm from 'shark-man/react-form';</code></pre>
+        <pre><code class="keyword">import <span class="text">BasicForm</span> <span class="keyword">from</span> <span class="string">'shark-man/react-form'</span>;</code></pre>
         <p>Make sure to adjust the import path according to the actual location of the file in your project.</p>
 
         <h2>Step 3: Using Components</h2>
         <p>Once you have imported the components, you can use them like any other React component in your application. For example, to use the BasicForm component, you can include it in the rendering of your parent component like this:</p>
         <pre><code>
-function App() {
-    return (
-        &lt;div className="App"&gt;
-            &lt;h1&gt;My Application with Formidable&lt;/h1&gt;
-            &lt;BasicForm formName="My Form" /&gt;
-        &lt;/div&gt;
+<span class="keyword">function</span> <span class="text">App</span>() {
+    <span class="keyword">return</span> (
+        &lt;<span class="tag">div</span> <span class="attribute">className</span>=<span class="value">"App"</span>&gt;
+            &lt;<span class="tag">h1</span>&gt;My Application with Formidable&lt;/<span class="tag">h1</span>&gt;
+            &lt;<span class="tag">BasicForm</span> <span class="attribute">formName</span>=<span class="value">"My Form"</span> /&gt;
+        &lt;/<span class="tag">div</span>&gt;
     );
 }
 
-export default App;</code></pre>
+<span class="keyword">export default</span> <span class="text">App</span>;</code></pre>
         <p>Make sure to pass any necessary props to the components, such as formName in this example.</p>
 
         <h2>Step 4: Customization</h2>
