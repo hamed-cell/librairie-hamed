@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formidable Documentation</title>
-    <!-- Prism.js Inclusion -->
+    <title>Outstanding Documentation</title>
+    <!-- Including Prism.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <style>
@@ -54,7 +54,7 @@
 <body>
     <div class="container">
 
-        <h1>Formidable Documentation</h1>
+        <h1>Outstanding Documentation</h1>
 
         <h2>Example 1: Information Collection Form</h2>
         <p>This code presents an information collection form in a React application using components from the "@shark-man/react-form" library.</p>
@@ -68,7 +68,7 @@ function App() {
       &lt;Input type="text" placeholder="first name" /&gt;
       &lt;Input type="text" placeholder="last name" /&gt;
       &lt;Input type="number" placeholder="age" /&gt;
-      &lt;label&gt;I have a disability&lt;/label&gt;
+      &lt;label&gt;I am disabled&lt;/label&gt;
       &lt;label htmlFor=""&gt;
         &lt;input type="radio" /&gt; Yes
       &lt;/label&gt;
@@ -89,10 +89,10 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Here's the rendering!</p>
+        <p>Here is the rendering!</p>
 
         <!-- Image -->
-        <img src="/rendu app.webp" alt="Application rendering">
+        <img src="/rendu app.webp" alt="Application Rendering">
 
         <h2>Example 2: Login Form</h2>
         <p>This code creates a login form in a React application using components from the "@shark-man/react-form" library.</p>
@@ -131,7 +131,7 @@ function App() {
       &lt;InputPassword
         name="password"
         onChange={handleChange}
-        value={data.password}
+        value={data.password"
         placeholder="Password"
       /&gt;
       &lt;button type="button" onClick={handleSubmit}&gt; Send &lt;/button&gt;
@@ -141,15 +141,15 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Here's the rendering!</p>
+        <p>Here is the rendering!</p>
 
         <!-- Image -->
-        <img src="/rendu app  2.webp" alt="Application rendering">
+        <img src="/rendu app  2.webp" alt="Application Rendering">
 
-        <h2>Example 3: Registration Form</h2>
-        <p>This code demonstrates how to create a registration form in a React application using components from the "@shark-man/react-form" library.</p>
+        <h2>Example 3: Signup Form</h2>
+        <p>This code demonstrates how to create a signup form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
-          &lt;import { Form, Input, InputPassword } from "@shark-man/react-form";
+          import { Form, Input, InputPassword } from "@shark-man/react-form";
           import { useState } from "react";
           function App() {
             const [data, setData] = useState({
@@ -200,42 +200,42 @@ export default App;
                     placeholder="Password"
                   /&gt;
                   &lt;button type="button" onClick={handleSubmit}&gt;
-                    {" "}
-                    Submit{" "}
+                    Submit
                   &lt;/button&gt;
                 &lt;/Form&gt;
               &lt;/&gt;
+            );
           }
           
-          export default App;          
-        </code></pre>
-        <p>Here's the rendering!</p>
-        <img src="/Signup.png" alt="Application rendering">
+          export default App;
+                  </code></pre>
+        <p>Here is the rendering!</p>
+        <img src="/Signup.png" alt="Application Rendering">
 
         <h2>Example 4: Using the Button Component</h2>
         <p>This code imports and uses a Button component from the "@shark-man/react-form" library. It demonstrates how to create multiple buttons with different styles using specific CSS classes.</p>
         <pre><code class="language-javascript">
 import { Button } from "@shark-man/react-form";
 
-function Buttontest() {
+function App() {
   return (
     &lt;div&gt;
-      &lt;Button className="button-glow"&gt;Button-glow &lt;/Button&gt;
+      &lt;Button className="button-glow"&gt;Glow Button&lt;/Button&gt;
       &lt;br /&gt;
-      &lt;Button className="cta-button"&gt; Cta-button&lt;/Button&gt;
+      &lt;Button className="cta-button"&gt; CTA Button&lt;/Button&gt;
       &lt;br /&gt;
-      &lt;Button className="button-normal"&gt; Button-normal&lt;/Button&gt;
+      &lt;Button className="button-normal"&gt; Normal Button&lt;/Button&gt;
       &lt;br /&gt;
-      &lt;Button className="button-martial"&gt; Button-martial&lt;/Button&gt;
+      &lt;Button className="button-martial"&gt; Martial Button&lt;/Button&gt;
     &lt;/div&gt;
   );
 }
 
-export default Buttontest;
+export default App;
         </code></pre>
 
         <h2>Conclusion</h2>
-        <p>This documentation has shown you how to use components from the "@shark-man/react-form" library to create forms in your React applications. With these components, you can easily handle information collection, user login, and user registration.</p>
+        <p>This documentation has shown you how to use the components from the "@shark-man/react-form" library to create forms in your React applications. With these components, you can easily manage information collection, user login, and user signup.</p>
     </div>
 </body>
 </html>

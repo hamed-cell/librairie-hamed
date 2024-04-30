@@ -153,10 +153,10 @@ import { Form, Input, InputPassword } from "@shark-man/react-form";
 import { useState } from "react";
 function App() {
   const [data, setData] = useState({
-    prenom: "",
-    nom: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    mot_de_passe: "",
+    password: "",
   });
   const handleSubmit = () => {
     console.log(data);
@@ -171,20 +171,20 @@ function App() {
   return (
     &lt;&gt;
       &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
-        &lt;h2&gt;Inscription&lt;/h2&gt;
+        &lt;h2&gt;Signup&lt;/h2&gt;
         &lt;Input
           type="text"
-          name="prenom"
+          name="firstname"
           onChange={handleChange}
-          value={data.prenom}
-          placeholder="Prénom"
+          value={data.firstname}
+          placeholder="First name"
         /&gt;
         &lt;Input
           type="text"
-          name="nom"
+          name="lastname"
           onChange={handleChange}
-          value={data.nom}
-          placeholder="Nom"
+          value={data.lastname}
+          placeholder="Last name"
         /&gt;
         &lt;Input
           type="email"
@@ -194,19 +194,20 @@ function App() {
           placeholder="Email"
         /&gt;
         &lt;InputPassword
-          name="mot_de_passe"
+          name="password"
           onChange={handleChange}
-          value={data.mot_de_passe}
-          placeholder="Mot de passe"
+          value={data.password}
+          placeholder="Password"
         /&gt;
         &lt;button type="button" onClick={handleSubmit}&gt;
-          {" "}
-          Soumettre{" "}
+          Submit
         &lt;/button&gt;
       &lt;/Form&gt;
     &lt;/&gt;
+  );
 }
-export default App;          
+
+export default App;
         </code></pre>
         <p>Voici le rendu !</p>
         <img src="/Signup.png" alt="Rendu de l'application">
@@ -216,7 +217,7 @@ export default App;
         <pre><code class="language-javascript">
 import { Button } from "@shark-man/react-form";
 
-function Buttontest() {
+function App() {
   return (
     &lt;div&gt;
       &lt;Button className="button-glow"&gt;Bouton-lueur&lt;/Button&gt;
@@ -230,7 +231,7 @@ function Buttontest() {
   );
 }
 
-export default Buttontest;
+export default App;
         </code></pre>
 
         <h2>Conclusion</h2>
