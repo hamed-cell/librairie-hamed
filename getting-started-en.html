@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation de Formidable</title>
-    <!-- Inclusion de Prism.js -->
+    <title>Formidable Documentation</title>
+    <!-- Inclusion of Prism.js -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <style>
@@ -54,10 +54,10 @@
 <body>
     <div class="container">
 
-        <h1>Documentation de Formidable</h1>
+        <h1>Formidable Documentation</h1>
 
-        <h2>Exemple 1: Formulaire de collecte d'informations</h2>
-        <p>Ce code présente un formulaire de collecte d'informations dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <h2>Example 1: Information Collection Form</h2>
+        <p>This code showcases an information collection form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
 import { Form, Input } from "@shark-man/react-form";
 
@@ -68,7 +68,7 @@ function App() {
       &lt;Input type="text" placeholder="firstname" /&gt;
       &lt;Input type="text" placeholder="lastname" /&gt;
       &lt;Input type="number" placeholder="age" /&gt;
-      &lt;label&gt;i have a handicap&lt;/label&gt;
+      &lt;label&gt;I have a handicap&lt;/label&gt;
       &lt;label htmlFor=""&gt;
         &lt;input type="radio" /&gt; Yes
       &lt;/label&gt;
@@ -89,13 +89,13 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
+        <p>Here is the rendering!</p>
 
         <!-- Image -->
-        <img src="/rendu app.webp" alt="Rendu de l'application">
+        <img src="/rendu app.webp" alt="Application rendering">
 
-        <h2>Exemple 2: Formulaire de connexion</h2>
-        <p>Ce code crée un formulaire de connexion dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <h2>Example 2: Login Form</h2>
+        <p>This code creates a login form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
 import { Form, Input, InputPassword } from "@shark-man/react-form";
 import { useState } from "react";
@@ -141,13 +141,13 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
+        <p>Here is the rendering!</p>
 
         <!-- Image -->
-        <img src="/rendu app  2.webp" alt="Rendu de l'application">
+        <img src="/rendu app  2.webp" alt="Application rendering">
 
-        <h2>Exemple 3: Formulaire d'inscription</h2>
-        <p>Ce code montre comment créer un formulaire d'inscription dans une application React en utilisant des composants de la bibliothèque "@shark-man/react-form".</p>
+        <h2>Example 3: Registration Form</h2>
+        <p>This code shows how to create a registration form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
 import { Form, Input, InputPassword } from "@shark-man/react-form";
 import { useState } from "react";
@@ -173,7 +173,7 @@ function App() {
   };
 
   return (
-    &lt;Form onSubmit={(e) => 3.preventDefault()} className="basic-form"&gt;
+    &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
       &lt;h2&gt;Signup&lt;/h2&gt;
       &lt;Input
         type="text"
@@ -186,20 +186,20 @@ function App() {
         type="text"
         name="lastname"
         onChange={handleChange}
-        value={data.lastname}
+        value={data.lastname
         placeholder="Last name"
       /&gt;
       &lt;Input
         type="email"
         name="email"
         onChange={handleChange}
-        value={data.email}
+        value={data.email
         placeholder="Email"
       /&gt;
       &lt;InputPassword
         name="password"
         onChange={handleChange}
-        value={data.password}
+        value={data.password
         placeholder="Password"
       /&gt;
       &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
@@ -209,11 +209,11 @@ function App() {
 
 export default App;
         </code></pre>
-        <p>Voici le rendu!</p>
-        <img src="/Signup.png   " alt="Rendu de l'application">
+        <p>Here is the rendering!</p>
+        <img src="/Signup.png" alt="Application rendering">
 
-        <h2>Exemple 4: Utilisation du composant Button</h2>
-        <p>Ce code importe et utilise un composant Button de la bibliothèque "@shark-man/react-form". Il démontre comment créer plusieurs boutons avec différents styles en utilisant des classes CSS spécifiques.</p>
+        <h2>Example 4: Using the Button Component</h2>
+        <p>This code imports and uses a Button component from the "@shark-man/react-form" library. It demonstrates how to create multiple buttons with different styles using specific CSS classes.</p>
         <pre><code class="language-javascript">
 import { Button } from "@shark-man/react-form";
 
