@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formidable Documentation</title>
-    <!-- Inclusion of Prism.js -->
+    <!-- Prism.js Inclusion -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/themes/prism.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.27.0/prism.min.js"></script>
     <style>
@@ -57,7 +57,7 @@
         <h1>Formidable Documentation</h1>
 
         <h2>Example 1: Information Collection Form</h2>
-        <p>This code showcases an information collection form in a React application using components from the "@shark-man/react-form" library.</p>
+        <p>This code presents an information collection form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
 import { Form, Input } from "@shark-man/react-form";
 
@@ -65,10 +65,10 @@ function App() {
   return (
     &lt;Form className="basic-form"&gt;
       &lt;h2&gt;Information&lt;/h2&gt;
-      &lt;Input type="text" placeholder="firstname" /&gt;
-      &lt;Input type="text" placeholder="lastname" /&gt;
+      &lt;Input type="text" placeholder="first name" /&gt;
+      &lt;Input type="text" placeholder="last name" /&gt;
       &lt;Input type="number" placeholder="age" /&gt;
-      &lt;label&gt;I have a handicap&lt;/label&gt;
+      &lt;label&gt;I have a disability&lt;/label&gt;
       &lt;label htmlFor=""&gt;
         &lt;input type="radio" /&gt; Yes
       &lt;/label&gt;
@@ -82,14 +82,14 @@ function App() {
         &lt;option value="option3"&gt;Option 3&lt;/option&gt;
       &lt;/select&gt;
 
-      &lt;button&gt; Submit &lt;/button&gt;
+      &lt;button&gt; Send &lt;/button&gt;
     &lt;/Form&gt;
   );
 }
 
 export default App;
         </code></pre>
-        <p>Here is the rendering!</p>
+        <p>Here's the rendering!</p>
 
         <!-- Image -->
         <img src="/rendu app.webp" alt="Application rendering">
@@ -102,8 +102,8 @@ import { useState } from "react";
 
 function App() {
   const [data, setData] = useState({
-    email: " ",
-    password: " ",
+    email: "",
+    password: "",
   });
 
   const handleSubmit = () => {
@@ -134,82 +134,82 @@ function App() {
         value={data.password}
         placeholder="Password"
       /&gt;
-      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
+      &lt;button type="button" onClick={handleSubmit}&gt; Send &lt;/button&gt;
     &lt;/Form&gt;
   );
 }
 
 export default App;
         </code></pre>
-        <p>Here is the rendering!</p>
+        <p>Here's the rendering!</p>
 
         <!-- Image -->
         <img src="/rendu app  2.webp" alt="Application rendering">
 
         <h2>Example 3: Registration Form</h2>
-        <p>This code shows how to create a registration form in a React application using components from the "@shark-man/react-form" library.</p>
+        <p>This code demonstrates how to create a registration form in a React application using components from the "@shark-man/react-form" library.</p>
         <pre><code class="language-javascript">
-import { Form, Input, InputPassword } from "@shark-man/react-form";
-import { useState } from "react";
-
-function App() {
-  const [data, setData] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: "",
-  });
-
-  const handleSubmit = () => {
-    console.log(data);
-  };
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  return (
-    &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
-      &lt;h2&gt;Signup&lt;/h2&gt;
-      &lt;Input
-        type="text"
-        name="firstname"
-        onChange={handleChange}
-        value={data.firstname}
-        placeholder="First name"
-      /&gt;
-      &lt;Input
-        type="text"
-        name="lastname"
-        onChange={handleChange}
-        value={data.lastname
-        placeholder="Last name"
-      /&gt;
-      &lt;Input
-        type="email"
-        name="email"
-        onChange={handleChange}
-        value={data.email
-        placeholder="Email"
-      /&gt;
-      &lt;InputPassword
-        name="password"
-        onChange={handleChange}
-        value={data.password
-        placeholder="Password"
-      /&gt;
-      &lt;button type="button" onClick={handleSubmit}&gt; Submit &lt;/button&gt;
-    &lt;/Form&gt;
-  );
-}
-
-export default App;
+          &lt;import { Form, Input, InputPassword } from "@shark-man/react-form";
+          import { useState } from "react";
+          function App() {
+            const [data, setData] = useState({
+              firstname: "",
+              lastname: "",
+              email: "",
+              password: "",
+            });
+            const handleSubmit = () => {
+              console.log(data);
+            };
+            const handleChange = (event) => {
+              const { name, value } = event.target;
+              setData({
+                ...data,
+                [name]: value,
+              });
+            };
+            return (
+              &lt;&gt;
+                &lt;Form onSubmit={(e) => e.preventDefault()} className="basic-form"&gt;
+                  &lt;h2&gt;Signup&lt;/h2&gt;
+                  &lt;Input
+                    type="text"
+                    name="firstname"
+                    onChange={handleChange}
+                    value={data.firstname}
+                    placeholder="First name"
+                  /&gt;
+                  &lt;Input
+                    type="text"
+                    name="lastname"
+                    onChange={handleChange}
+                    value={data.lastname}
+                    placeholder="Last name"
+                  /&gt;
+                  &lt;Input
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    value={data.email}
+                    placeholder="Email"
+                  /&gt;
+                  &lt;InputPassword
+                    name="password"
+                    onChange={handleChange}
+                    value={data.password}
+                    placeholder="Password"
+                  /&gt;
+                  &lt;button type="button" onClick={handleSubmit}&gt;
+                    {" "}
+                    Submit{" "}
+                  &lt;/button&gt;
+                &lt;/Form&gt;
+              &lt;/&gt;
+          }
+          
+          export default App;          
         </code></pre>
-        <p>Here is the rendering!</p>
+        <p>Here's the rendering!</p>
         <img src="/Signup.png" alt="Application rendering">
 
         <h2>Example 4: Using the Button Component</h2>
@@ -235,7 +235,7 @@ export default Buttontest;
         </code></pre>
 
         <h2>Conclusion</h2>
-        <p>This documentation has shown you how to use components from the "@shark-man/react-form" library to create forms in your React applications. With these components, you can easily manage information collection, user login, and user registration.</p>
+        <p>This documentation has shown you how to use components from the "@shark-man/react-form" library to create forms in your React applications. With these components, you can easily handle information collection, user login, and user registration.</p>
     </div>
 </body>
 </html>
